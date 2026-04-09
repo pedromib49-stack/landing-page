@@ -779,124 +779,200 @@ header.scrolled {
   }
 }
 
-/* ─── 6. SOCIAL PROOF ────────────────────────────── */
-.proof-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-bottom: 80px;
+/* ─── 6. FEATURED LAUNCHES ───────────────────────── */
+.featured-launches {
+  background: linear-gradient(180deg, rgba(240, 224, 186, 0.16) 0%, rgba(250, 248, 244, 0) 100%);
 }
 
-.stat-card {
-  background: var(--white);
-  padding: 40px 32px;
+.launches-header {
   text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+.launches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.launch-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--white);
+  border: 1px solid rgba(28, 23, 17, 0.08);
   border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease;
 }
 
-.stat-card:nth-child(2) {
-  background: var(--bg-dark);
+.launch-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.launch-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.launch-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.launch-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--accent);
   color: var(--white);
-}
-
-.stat-num {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.stat-label {
-  font-size: 13px;
-  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-top: 8px;
+  padding: 5px 12px;
+  border-radius: 2px;
 }
 
-.stat-card:nth-child(2) .stat-label {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.testimonial {
+.launch-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   background: var(--white);
-  border-radius: var(--radius);
-  padding: 32px;
-  position: relative;
+  padding: 24px 28px;
 }
 
-.testimonial::before {
-  content: '"';
-  position: absolute;
-  top: 20px;
-  right: 24px;
+.launch-card-title {
   font-family: var(--font-display);
-  font-size: 72px;
-  color: var(--accent-light);
-  line-height: 1;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
-.testimonial-text {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--text);
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.testimonial-author {
+.launch-card-location {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
-.testimonial-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--accent-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--accent-dark);
-  font-size: 16px;
+.launch-card-location svg {
   flex-shrink: 0;
+  color: var(--accent);
 }
 
-.testimonial-name {
-  font-weight: 500;
-  font-size: 14px;
+.launch-card-features {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  margin-bottom: 18px;
 }
 
-.testimonial-location {
-  font-size: 12px;
+.launch-card-feature {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.launch-card-feature svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.launch-card-feature+.launch-card-feature {
+  margin-left: 12px;
+  padding-left: 14px;
+}
+
+.launch-card-feature+.launch-card-feature::before {
+  content: '·';
+  position: absolute;
+  left: 0;
   color: var(--text-muted);
 }
 
-.testimonial-stars {
-  color: var(--accent);
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 2px;
+.launch-card-highlight {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 900px) {
-  .proof-stats {
-    grid-template-columns: 1fr;
-    gap: 8px;
+.launch-card-delivery {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.launch-card-price {
+  margin-top: auto;
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.launch-card-cta {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 18px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.launch-card-cta:hover,
+.launch-card-cta:focus-visible {
+  background: var(--accent-dark);
+}
+
+.launch-card-cta:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .launch-card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   }
 
-  .testimonials-grid {
+  .launch-card:hover .launch-card-image {
+    transform: scale(1.04);
+  }
+}
+
+@media (max-width: 800px) {
+  .launches-grid {
     grid-template-columns: 1fr;
   }
 }
