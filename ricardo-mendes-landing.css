@@ -947,6 +947,7 @@ header.scrolled {
   font-size: 14px;
   font-weight: 500;
   padding: 15px 18px;
+  text-decoration: none;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
 }
@@ -1330,12 +1331,14 @@ footer {
   position: relative;
   width: 100%;
   max-width: 460px;
-  margin-left: auto;
+  margin-left: 0;
+  margin-right: clamp(16px, 3vw, 40px);
   margin-top: 40px;
   aspect-ratio: 3/4;
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: center;
 }
 
 .foto-da-hero::before {
@@ -1350,7 +1353,7 @@ footer {
     background-color 0.45s ease;
 }
 
-.foto-da-hero img {
+.foto-da-hero > .hero-main-photo {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -1373,8 +1376,8 @@ footer {
   background: #f4e6c4;
 }
 
-.foto-da-hero:hover img,
-.foto-da-hero:focus-within img {
+.foto-da-hero:hover > .hero-main-photo,
+.foto-da-hero:focus-within > .hero-main-photo {
   transform: translateY(-6px);
   box-shadow: 0 28px 56px rgba(28, 23, 17, 0.18);
   filter: saturate(1.03);
@@ -1399,5 +1402,6 @@ footer {
     order: -1;
     max-width: 300px;
     margin: 0 auto;
+    justify-self: auto;
   }
 }
