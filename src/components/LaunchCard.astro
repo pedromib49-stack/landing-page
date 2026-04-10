@@ -1,0 +1,61 @@
+---
+interface Props {
+  nome: string;
+  badge?: string;
+  imagem: string;
+  localizacao: string;
+  feature1?: string;
+  feature2?: string;
+  feature3?: string;
+  destaque?: string;
+  entrega?: string;
+  preco: string;
+  linkWhatsApp: string;
+  linkPagina?: string;
+}
+
+const { nome, badge, imagem, localizacao, feature1, feature2, feature3, destaque, entrega, preco, linkWhatsApp, linkPagina } = Astro.props;
+
+const features = [feature1, feature2, feature3].filter(Boolean);
+---
+
+<article class="launch-card" role="link" tabindex="0"
+  aria-label={`Abrir página do empreendimento ${nome}`}
+  data-launch-url={linkPagina || '#'}>
+  <div class="launch-card-media">
+    <img class="launch-card-image" src={imagem}
+      alt={`Fachada do empreendimento ${nome}`} />
+    {badge && <div class="launch-card-badge">{badge}</div>}
+  </div>
+  <div class="launch-card-body">
+    <h3 class="launch-card-title">{nome}</h3>
+    <div class="launch-card-location">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 21c-3.3-4.2-5-7.2-5-9.3A5 5 0 0 1 17 11.7c0 2.1-1.7 5.1-5 9.3Z" stroke="currentColor"
+          stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="12" cy="11" r="1.8" stroke="currentColor" stroke-width="1.6" />
+      </svg>
+      <span>{localizacao}</span>
+    </div>
+    {features.length > 0 && (
+      <div class="launch-card-features" aria-label={`Características do empreendimento ${nome}`}>
+        {features.map((feat) => (
+          <span class="launch-card-feature">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+            <span>{feat}</span>
+          </span>
+        ))}
+      </div>
+    )}
+    {destaque && <p class="launch-card-highlight">{destaque}</p>}
+    {entrega && <div class="launch-card-delivery">Entrega prevista: {entrega}</div>}
+    <div class="launch-card-price">{preco}</div>
+    <a class="launch-card-cta"
+      href={linkWhatsApp}
+      target="_blank" rel="noopener" onclick="event.stopPropagation()">
+      Tenho interesse →
+    </a>
+  </div>
+</article>

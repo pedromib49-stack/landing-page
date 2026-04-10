@@ -1,0 +1,17 @@
+{
+  "name": "ricardo-mendes-landing",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.7.10"
+  },
+  "devDependencies": {
+    "tinacms": "^2.6.1",
+    "@tinacms/cli": "^1.6.12"
+  }
+}

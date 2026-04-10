@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+---
+import { getCollection } from 'astro:content';
+import LaunchCard from '../components/LaunchCard.astro';
+
+const imoveis = await getCollection('imoveis');
+---
 <html lang="pt-BR">
 
 <head>
@@ -15,7 +20,7 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="ricardo-mendes-landing.css" />
+  <link rel="stylesheet" href="/ricardo-mendes-landing.css" />
 </head>
 
 <body>
@@ -82,7 +87,7 @@
       </div>
 
       <div class="foto-da-hero">
-        <img class="hero-main-photo" src="img/631525381_17857212297610037_6508812477670917081_n.jpg"
+        <img class="hero-main-photo" src="/img/631525381_17857212297610037_6508812477670917081_n.jpg"
           alt="Ricardo Mendes">
         <div class="hero-badge hero-badge-premium">
 
@@ -206,7 +211,7 @@
     </div>
   </section>
 
-  <!-- ─── FEATURED PROJECTS ─── -->
+  <!-- ─── FEATURED PROJECTS (DYNAMIC FROM CMS) ─── -->
   <section class="section reveal featured-launches" id="depoimentos">
     <div class="container">
       <div class="launches-header">
@@ -215,151 +220,22 @@
       </div>
 
       <div class="launches-grid">
-        <article class="launch-card" role="link" tabindex="0"
-          aria-label="Abrir página do empreendimento Estação Borba Gato"
-          data-launch-url="https://mundoapto.com.br/mundo-apto-estacao-borba-gato/">
-          <div class="launch-card-media">
-            <img class="launch-card-image" src="estacao-borba-gato.jpg"
-              alt="Fachada do empreendimento Estação Borba Gato" />
-            <div class="launch-card-badge">Lançamento</div>
-          </div>
-          <div class="launch-card-body">
-            <h3 class="launch-card-title">Estação Borba Gato</h3>
-            <div class="launch-card-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21c-3.3-4.2-5-7.2-5-9.3A5 5 0 0 1 17 11.7c0 2.1-1.7 5.1-5 9.3Z" stroke="currentColor"
-                  stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="12" cy="11" r="1.8" stroke="currentColor" stroke-width="1.6" />
-              </svg>
-              <span>Chácara Santo Antônio, Zona Sul · São Paulo</span>
-            </div>
-            <div class="launch-card-features" aria-label="Características do empreendimento Estação Borba Gato">
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>1 a 2 dorms</span>
-              </span>
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>Varanda</span>
-              </span>
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>Metrô Borba Gato (Linha 5-Lilás) a 5 passos</span>
-              </span>
-            </div>
-            <p class="launch-card-highlight">Lounge Rooftop + Barroco Sky com vista da cidade</p>
-            <div class="launch-card-price">Consulte condições</div>
-            <a class="launch-card-cta"
-              href="https://wa.me/5511994037626?text=Ol%C3%A1%20Ricardo%2C%20tenho%20interesse%20no%20Esta%C3%A7%C3%A3o%20Borba%20Gato%20%28Ch%C3%A1cara%20Santo%20Ant%C3%B4nio%29.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F"
-              target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              Tenho interesse →
-            </a>
-          </div>
-        </article>
-
-        <article class="launch-card" role="link" tabindex="0"
-          aria-label="Abrir página do empreendimento Elevato Bosque da Saúde"
-          data-launch-url="https://mundoapto.com.br/mundo-apto-elevato-bosque-da-saude/">
-          <div class="launch-card-media">
-            <img class="launch-card-image" src="elevato-bosque-da-saude.jpg"
-              alt="Fachada do empreendimento Elevato Bosque da Saúde" />
-            <div class="launch-card-badge">Lançamento</div>
-          </div>
-          <div class="launch-card-body">
-            <h3 class="launch-card-title">Elevato Bosque da Saúde</h3>
-            <div class="launch-card-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21c-3.3-4.2-5-7.2-5-9.3A5 5 0 0 1 17 11.7c0 2.1-1.7 5.1-5 9.3Z" stroke="currentColor"
-                  stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="12" cy="11" r="1.8" stroke="currentColor" stroke-width="1.6" />
-              </svg>
-              <span>Bosque da Saúde, Zona Sul · São Paulo</span>
-            </div>
-            <div class="launch-card-features" aria-label="Características do empreendimento Elevato Bosque da Saúde">
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>Studio a 3 dorms</span>
-              </span>
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>24 a 58m²</span>
-              </span>
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>1,7km do Metrô Alto do Ipiranga</span>
-              </span>
-            </div>
-            <p class="launch-card-highlight">Condomínio clube · Rooftop com churrasqueira · MCMV</p>
-            <div class="launch-card-delivery">Entrega prevista: Junho de 2028</div>
-            <div class="launch-card-price">A partir de R$ 212.000</div>
-            <a class="launch-card-cta"
-              href="https://wa.me/5511994037626?text=Ol%C3%A1%20Ricardo%2C%20tenho%20interesse%20no%20Elevato%20Bosque%20da%20Sa%C3%BAde.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F"
-              target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              Tenho interesse →
-            </a>
-          </div>
-        </article>
-
-        <article class="launch-card" role="link" tabindex="0"
-          aria-label="Abrir página do empreendimento Elevato Pinheiros"
-          data-launch-url="https://mundoapto.com.br/mundo-apto-elevato-pinheiros/">
-          <div class="launch-card-media">
-            <img class="launch-card-image" src="elevato-pinheiros.jpg"
-              alt="Fachada do empreendimento Elevato Pinheiros" />
-            <div class="launch-card-badge">Lançamento</div>
-          </div>
-          <div class="launch-card-body">
-            <h3 class="launch-card-title">Elevato Pinheiros</h3>
-            <div class="launch-card-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21c-3.3-4.2-5-7.2-5-9.3A5 5 0 0 1 17 11.7c0 2.1-1.7 5.1-5 9.3Z" stroke="currentColor"
-                  stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="12" cy="11" r="1.8" stroke="currentColor" stroke-width="1.6" />
-              </svg>
-              <span>Pinheiros, Zona Oeste · São Paulo</span>
-            </div>
-            <div class="launch-card-features" aria-label="Características do empreendimento Elevato Pinheiros">
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>1 dorm</span>
-              </span>
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>24m²</span>
-              </span>
-              <span class="launch-card-feature">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M6 1.5 10.5 6 6 10.5 1.5 6 6 1.5Z" stroke="currentColor" stroke-width="1.2" />
-                </svg>
-                <span>5 min do Metrô Fradique Coutinho (Linha 4-Amarela)</span>
-              </span>
-            </div>
-            <p class="launch-card-highlight">Bairro mais valorizado de SP · Alto potencial de locação</p>
-            <div class="launch-card-delivery">Entrega prevista: Maio de 2028</div>
-            <div class="launch-card-price">A partir de R$ 336.641</div>
-            <a class="launch-card-cta"
-              href="https://wa.me/5511994037626?text=Ol%C3%A1%20Ricardo%2C%20tenho%20interesse%20no%20Elevato%20Pinheiros.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F"
-              target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              Tenho interesse →
-            </a>
-          </div>
-        </article>
+        {imoveis.map((imovel) => (
+          <LaunchCard
+            nome={imovel.data.nome}
+            badge={imovel.data.badge}
+            imagem={imovel.data.imagem}
+            localizacao={imovel.data.localizacao}
+            feature1={imovel.data.feature1}
+            feature2={imovel.data.feature2}
+            feature3={imovel.data.feature3}
+            destaque={imovel.data.destaque}
+            entrega={imovel.data.entrega}
+            preco={imovel.data.preco}
+            linkWhatsApp={imovel.data.linkWhatsApp}
+            linkPagina={imovel.data.linkPagina}
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -370,7 +246,7 @@
       <div class="about-inner">
         <div class="about-img-wrap">
           <div class="about-img-bg"></div>
-          <img class="about-img" src="img/631525381_17857212297610037_6508812477670917081_n.jpg" alt="Ricardo Mendes" />
+          <img class="about-img" src="/img/631525381_17857212297610037_6508812477670917081_n.jpg" alt="Ricardo Mendes" />
         </div>
         <div>
           <div class="about-eyebrow">Quem é Ricardo Mendes</div>
@@ -465,7 +341,7 @@
     </div>
   </footer>
 
-  <script>
+  <script is:inline>
     // ─── Header scroll effect
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
@@ -491,7 +367,7 @@
     launchCards.forEach((card) => {
       const openLaunchLink = () => {
         const url = card.dataset.launchUrl;
-        if (url) window.open(url, '_blank', 'noopener');
+        if (url && url !== '#') window.open(url, '_blank', 'noopener');
       };
 
       card.addEventListener('click', openLaunchLink);
