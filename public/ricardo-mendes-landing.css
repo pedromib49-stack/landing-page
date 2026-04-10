@@ -475,6 +475,8 @@ header.scrolled {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: clamp(20px, 5vw, 64px);
+    padding-right: clamp(20px, 5vw, 64px);
   }
 
   .hero-eyebrow::before {
@@ -1325,12 +1327,6 @@ footer {
 .hero-content-wide {
   max-width: none;
   padding-right: 40px;
-}
-
-@media (max-width: 800px) {
-  .hero-content-wide {
-    padding-right: clamp(20px, 5vw, 64px);
-  }
 }
 
 .hero-image-panel-wide {
