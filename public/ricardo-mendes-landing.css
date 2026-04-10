@@ -477,6 +477,10 @@ header.scrolled {
     align-items: center;
   }
 
+  .hero-eyebrow::before {
+    display: none;
+  }
+
   .hero-actions {
     justify-content: center;
   }
@@ -1321,6 +1325,12 @@ footer {
 .hero-content-wide {
   max-width: none;
   padding-right: 40px;
+}
+
+@media (max-width: 800px) {
+  .hero-content-wide {
+    padding-right: clamp(20px, 5vw, 64px);
+  }
 }
 
 .hero-image-panel-wide {
